@@ -72,7 +72,7 @@ import App from "../App";
             console.log(err);
           });
       } else {
-        signup({ name, fullname, email, password });
+        signup({ name, fullname, email, password, photo });
       }
     };
   

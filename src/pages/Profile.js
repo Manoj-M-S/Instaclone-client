@@ -33,7 +33,7 @@ const Profile = () => {
             })
         );
     } else {
-      return <Redirect to="/signup" />;
+      return <Redirect to="/" />;
     }
   }, [user._id, token]);
 
@@ -148,7 +148,7 @@ const Profile = () => {
           <h2>Loading!</h2>
         )
       ) : (
-        <Redirect to="/signup" />
+        <Redirect to="/" />
       )}
     </App>
   );
