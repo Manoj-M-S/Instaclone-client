@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css?family=Ibarra+Real+Nova|Open+Sans|Quicksand|Raleway|Grand+Hotel|Segoe-UI|Source+Sans+Pro&display=swap");
+
+/* a {
+  color: black !important;
+} */
+nav .brand-logo {
+  color: black;
+}
+
+.text:hover {
+  text-decoration: underline;
+}
+.red-color {
+  color:red;
+  }
+
+  .black-color {
+    color:black;
+    font-size: 500px;
+    }
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item {
+  width: 30%;
+  border-radius: 3%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+}
+
+nav .brand {
+  color: black;
+}
+
+.brand-logo {
+  font-family: Grand Hotel;
+  margin-left: 1%;
+}
+
+.right {
+  font-family: Quicksand;
+  margin-right: 1%;
+  padding-right: 200px;
+}
+
+
+.auth-card {
+  padding: 20px;
+  text-align: center;
+  max-width: 400px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(71, 71, 71, 0.2),
+    0 6px 20px 0 rgba(87, 87, 87, 0.19);
+}
+
+.auth-card h2 {
+  font-family: Grand Hotel;
+}
+input::placeholder {
+  color: rgb(73, 73, 73);
+  font-size: small;
+}
+.link {
+  color: rgb(3, 169, 235);
+}
+
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid rgb(100, 100, 100) !important;
+  box-shadow: 0 1px 0 0 rgb(201, 201, 201) !important;
+}
+
+.hoverbuttons:hover {
+  box-shadow: 0 5px 15px rgba(19, 159, 240, 0.8);
+}
+.hoverbutton:hover {
+  box-shadow: 0 5px 15px rgba(156, 156, 156, 0.8);
+}
+.hoverdelete:hover {
+  color:red ;
+}
+.home-card {
+  max-width: 500px;
+  height: max-content;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(71, 71, 71, 0.2),
+    0 6px 20px 0 rgba(87, 87, 87, 0.19);
+}
+
+.profile-card {
+  width: 200px;
+  height: 200px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(71, 71, 71, 0.2),
+    0 6px 20px 0 rgba(87, 87, 87, 0.19);
+}
+
+.field {
+  padding: 20px;
+  text-align: center;
+  max-width: 500px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(71, 71, 71, 0.2),
+    0 6px 20px 0 rgba(87, 87, 87, 0.19);
+}
+
+.material-icons:hover {
+  cursor: pointer
+}
+
+body {
+  background-color: #FAFAFA;
+}
+.loginpage__main {
+  display: flex;
+  margin-top: 10px;
+  margin-left: -65px;
+}
+.loginpage__logo {
+  width: 175px;
+  margin-top: 25px;
+}
+.loginpage_rightcomponent { 
+  width: 350px;
+  padding-bottom: 25px;
+  border: 1px solid #DBDBDB;
+  margin-top: 25px;
+  text-align: center;
+  background-color: white;
+}
+.loginPage__signin {
+  margin-top: 25px;
+}
+
+.loginpage__text{
+  width:258px !important;
+  height: 36px !important;
+  margin:5px !important;
+  border: 1px solid #DBDBDB !important;
+  background-color: #FAFAFA !important;
+  padding-left: 10px !important;
+  border-radius: 5px !important;
+}
+.login__button{
+  cursor:pointer;
+  width:270px;
+  height: 36px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 5px;
+  border:1px solid #0395F6;
+  background-color: #0395F6;
+  color: white;
+}
+.login__ordiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.login__dividor {
+  width: 80px;
+  height: 0px;
+  margin-top: 10px;
+  border:1px solid #DBDBDB;
+}
+.login__or {
+  margin: 0px 10px;
+  font-weight: bold;
+  color: #8E8E8E;
+}
+.login__fb {
+  color: #395185;
+  font-weight: bold;
+  margin-top: 30px;
+}
+.login_forgt {
+  color: rgba(var(--fe0,0,55,107),1);
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 12px;
+  text-align: center;
+}
+.loginpage__signupoption {
+  margin-top: 25px;
+  height:56px;
+  width: 350px;
+  background-color: white;
+  border: 1px solid #DBDBDB;
+  text-align: center;
+}
+.loginPage__signin{
+  margin-top: 20px;
+}
+.loginPage__signup {
+  margin-top: 20px;
+}
+.loginPage__downloadSection {
+  height: 105px;
+  width: 350px;
+  text-align: center;
+  margin-top: 20px;
+}
+.loginPage__option {
+  margin-top: 20px;
+}
+.loginPage_dwimg {
+  margin: 5px;
+}
+
