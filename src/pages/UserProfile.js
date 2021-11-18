@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import App from "../App";
 import { isAuthenticated } from "../helper/AuthHelper";
 import { API } from "../backend";
-import { useParams, Redirect, useHistory } from "react-router-dom";
+import { useParams, Redirect} from "react-router-dom";
 import M from "materialize-css";
 
 const UserProfile = () => {
   const [userProfile, setProfile] = useState([]);
-  const history = useHistory();
   const { user, token } = isAuthenticated();
   const { userId } = useParams();
 
@@ -44,7 +43,7 @@ const UserProfile = () => {
           classes: "#43a047 green darken-1",
         });
         setTimeout(() => {
-          history.push("/home");
+          window.location.reload();
         }, 1000);
       })
       .catch((err) => {
@@ -70,10 +69,10 @@ const UserProfile = () => {
       .then(() => {
         M.toast({
           html: `You unfollowed ${userProfile.username}`,
-          classes: "#43a047 green darken-1",
+          classes: "#43a047 green light-1",
         });
         setTimeout(() => {
-          history.push("/home");
+          window.location.reload();
         }, 1000);
       })
       .catch((err) => {
@@ -93,6 +92,7 @@ const UserProfile = () => {
                   justifyContent: "space-around",
                   margin: "18px 0px",
                   borderBottom: "1px solid grey",
+                  paddingBottom : "10px"
                 }}
               >
                 <div>
@@ -133,14 +133,14 @@ const UserProfile = () => {
                   <div style={{ padding: "10px 0px " }}>
                     {userProfile.followers.includes(user.name) ? (
                       <button
-                        className="btn waves-effect waves-light blue "
+                        className="btn-small waves-effect waves-light blue "
                         onClick={() => unfollowUser()}
                       >
                         Unfollow
                       </button>
                     ) : (
                       <button
-                        className="btn waves-effect waves-light blue "
+                        className="btn-small waves-effect waves-light blue "
                         onClick={() => followUser()}
                       >
                         Follow
@@ -149,6 +149,8 @@ const UserProfile = () => {
                   </div>
                 </div>
               </div>
+              <h6 className="posts"> <i className="tiny material-icons"> apps</i>Posts</h6> <br></br>
+
               <div className="gallery ">
                 {userProfile.posts.map((item) => {
                   return (
@@ -163,7 +165,9 @@ const UserProfile = () => {
               </div>
             </div>
           ) : (
-            <h2>Loading!</h2>
+            <div className="loading" >
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fshopstatic-in.vivo.com%2Fdist%2Fcommon%2Fimages%2Floading_e5479cc.gif&f=1&nofb=1" alt="Loading.." width="100px" height="100px"/>
+         </div>
           )
         ) : (
           <Redirect to="/" />

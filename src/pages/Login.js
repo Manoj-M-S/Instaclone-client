@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import M from "materialize-css";
 import inst_image from '../images/9364675fb26a.svg';
 import insta_logo from '../images/logoinsta.png';
-import fb from '../images/fb.png';
 import appstore from '../images/app.png';
 import playstore from '../images/play.png';
 import App from "../App";
@@ -14,9 +13,41 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const guestDetails =  {email :"test@gmail.com",password:"test123"};
 
   const signupform = () => {
     const login = (user) => {
+      return fetch(`${API}/login`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          if (!data.error) {
+            localStorage.setItem("loggedIn", JSON.stringify(data));
+            M.toast({
+              html: "Login Successful",
+              classes: "#43a047 green darken-1",
+            });
+            setTimeout(() => {
+              history.push("/explore");
+            }, 250);
+          } else {
+            M.toast({
+              html: data.error,
+              classes: "#c62828 red darken-2",
+            });
+          }
+        })
+        .catch((error) => console.log(error));
+    };
+    const guestLogin = (user) => {
       return fetch(`${API}/login`, {
         method: "POST",
         headers: {
@@ -90,10 +121,11 @@ const Login = () => {
                                 <div className="login__dividor"></div>
                             </div>
 
-                            <div className="login__fb">
-                                <img alt= "" src={fb} width="15px" style={{ "marginRight":"5px" }} />Log in with Facebook
-                            </div>
-                            <div className="login_forgt"> Forgot password?</div>
+                              <button fontWeight = "bold" color ="#0395F6" className="login__button"
+                                      onClick={() => guestLogin(guestDetails)}
+                                    >
+                                      Login as guest
+                                    </button>
                               </div>
                        </div>
                    </div>

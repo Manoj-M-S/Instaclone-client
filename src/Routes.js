@@ -8,6 +8,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import UserProfile from "./pages/UserProfile";
 import Post from "./pages/Mypost";
 import Explore from "./pages/Explore";
+import ErrorPage from "./pages/ErrorPage";
 
 const Routes = () => {
   return (
@@ -21,6 +22,7 @@ const Routes = () => {
         <Route path="/profile/:userId" exact component={UserProfile} />
         <Route path="/editpost/:postId" exact component={Post} />
         <Route path="/explore" exact component={Explore} />
+        <Route path="*" component={ErrorPage } />
       </Switch>
     </BrowserRouter>
   );

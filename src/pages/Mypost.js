@@ -93,12 +93,12 @@ const Post = () => {
               <img alt={pics.caption} src={pics.photo} />
             </div>
             <div className="card-content">
-              <h5>
-                {pics.caption}
-              </h5>
-              <h5>
-                <b> {pics.location}</b>
-              </h5>
+              <h6>
+               Caption :  {pics.caption}
+              </h6>
+              <h6>
+                Location : {pics.location}
+              </h6>
             </div>
             <div className="card field">
               <input
@@ -132,7 +132,9 @@ const Post = () => {
             </div>
           </div>
         ) : (
-          <h2>Loading!</h2>
+          <div className="loading" >
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fshopstatic-in.vivo.com%2Fdist%2Fcommon%2Fimages%2Floading_e5479cc.gif&f=1&nofb=1" alt="Loading.." width="100px" height="100px"/>
+         </div>
         )
       ) : (
         <Redirect to="/" />

@@ -13,7 +13,23 @@ nav .brand-logo {
 .red-color {
   color:red;
   }
-
+.errorpage h4 {
+  text-align: center;
+  
+}
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  Height: 100vh;
+  Width: 100vw; 
+}
+.errorpage h6{
+  text-align: center;
+}
+.posts {
+  text-align: center;
+}
   .black-color {
     color:black;
     font-size: 500px;

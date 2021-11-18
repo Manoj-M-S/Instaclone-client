@@ -274,7 +274,9 @@ const Explore = () => {
             );
           })
         ) : (
-          <h2>Loading!</h2>
+          <div className="loading" >
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fshopstatic-in.vivo.com%2Fdist%2Fcommon%2Fimages%2Floading_e5479cc.gif&f=1&nofb=1" alt="Loading.." width="100px" height="100px"/>
+       </div>
         )
       ) : (
         <Redirect to="/" />

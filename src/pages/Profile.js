@@ -33,7 +33,7 @@ const Profile = () => {
             })
         );
     } else {
-      return <Redirect to="/" />;
+      return <Redirect to="/signup" />;
     }
   }, [user._id, token]);
 
@@ -68,6 +68,7 @@ const Profile = () => {
                 justifyContent: "space-around",
                 margin: "18px 0px",
                 borderBottom: "1px solid grey",
+                paddingBottom:"10px"
               }}
             >
               <div>
@@ -109,6 +110,7 @@ const Profile = () => {
                 <h6>{user.fullname}</h6>
               </div>
             </div>
+            <h6 className="posts"> <i className="tiny material-icons"> apps</i>Posts</h6> <br></br>
             <div className="gallery">
               {mypics.map((item) => {
                 return (
@@ -122,10 +124,9 @@ const Profile = () => {
                             alt={item.caption}
                             src={item.photo}
                           />
-                        </div>
-                        <div style={{"paddingTop": "50px"}}>
+                          <div >
                         <i
-                          className="material-icons hoverdelete"
+                          className="material-icons hoverdelete Tiny"
                           style={{ float: "right" }}
                           onClick={() => {
                             deletePost(item._id);
@@ -133,10 +134,12 @@ const Profile = () => {
                         >
                           delete
                         </i>
-                        <i className="material-icons" style={{ float: "left" }}>
+                        <i className="material-icons Tiny" style={{ float: "left",}}>
                           <Link to={`/editpost/${item._id}/`}>create </Link>
                         </i>
                         </div>
+                        </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -145,10 +148,12 @@ const Profile = () => {
             </div>
           </div>
         ) : (
-          <h2>Loading!</h2>
+          <div className="loading" >
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fshopstatic-in.vivo.com%2Fdist%2Fcommon%2Fimages%2Floading_e5479cc.gif&f=1&nofb=1" alt="Loading.." width="100px" height="100px"/>
+         </div>
         )
       ) : (
-        <Redirect to="/" />
+        <Redirect to="/signup" />
       )}
     </App>
   );
