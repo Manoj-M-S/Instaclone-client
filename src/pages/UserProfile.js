@@ -43,7 +43,7 @@ const UserProfile = () => {
           classes: "#43a047 green darken-1",
         });
         setTimeout(() => {
-          window.location.reload();
+          window.location.reload(false);
         }, 1000);
       })
       .catch((err) => {
