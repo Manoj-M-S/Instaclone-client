@@ -18,6 +18,7 @@ const UserProfile = () => {
         .then((res) => res.json())
         .then((result) => {
           setProfile(result);
+          console.log(result);
         });
     } else {
       return <Redirect to="/" />;
@@ -131,7 +132,7 @@ const UserProfile = () => {
                     <h6><b>{userProfile.followers.length}</b>  Followers</h6>
                     <h6><b>{userProfile.following.length}</b>  Following</h6>
                   </div>
-                  <h6>{user.fullname}</h6>
+                  <h6>{userProfile.fullname}</h6>
                   <div style={{ padding: "10px 0px " }}>
                     {userProfile.followers.includes(user.name) ? (
                       <button

@@ -128,7 +128,7 @@ import App from "../App";
                                   <input
                                       type="email"
                                       className="loginpage__text"
-                                      placeholder="Mobile number or Email"
+                                      placeholder="Email"
                                       value={email}
                                       onChange={(e) => setEmail(e.target.value)}
                                     />
