@@ -22,7 +22,7 @@ const Routes = () => {
         <Route path="/profile/:userId" exact component={UserProfile} />
         <Route path="/editpost/:postId" exact component={Post} />
         <Route path="/explore" exact component={Explore} />
-        <Route path="*" exact component={ErrorPage } />
+        <Route path='*' exact={true}  component={ErrorPage } />
       </Switch>
     </BrowserRouter>
   );
