@@ -96,7 +96,7 @@ import App from "../App";
         })
           .then((res) => res.json())
           .then((data) => {
-            photo = data.url;
+            photo = data.secure_url;
           })
           .then(() => signup({ name, fullname, email, password, photo }))
           .catch((err) => {
