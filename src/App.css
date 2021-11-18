@@ -13,6 +13,10 @@ nav .brand-logo {
 .red-color {
   color:red;
   }
+
+  .collection-item {
+    width: 100%;
+  }
 .errorpage h4 {
   text-align: center;
   

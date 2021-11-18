@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import App from "../App";
 import { isAuthenticated } from "../helper/AuthHelper";
 import { API } from "../backend";
@@ -9,7 +10,8 @@ const UserProfile = () => {
   const [userProfile, setProfile] = useState([]);
   const { user, token } = isAuthenticated();
   const { userId } = useParams();
-
+  const history = useHistory();
+  
   useEffect(() => {
     if (user._id) {
       fetch(`${API}/profile/${userId}`)
@@ -43,7 +45,7 @@ const UserProfile = () => {
           classes: "#43a047 green darken-1",
         });
         setTimeout(() => {
-          window.location.reload(false);
+          history.push("/explore");
         }, 1000);
       })
       .catch((err) => {
