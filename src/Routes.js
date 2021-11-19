@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import CreatePost from "./pages/CreatePost";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route , Redirect} from "react-router-dom";
 import UserProfile from "./pages/UserProfile";
 import Post from "./pages/Mypost";
 import Explore from "./pages/Explore";
@@ -22,7 +22,8 @@ const Routes = () => {
         <Route path="/profile/:userId" exact component={UserProfile} />
         <Route path="/editpost/:postId" exact component={Post} />
         <Route path="/explore" exact component={Explore} />
-        <Route component={ErrorPage} />
+        <Route path="/errorpage" exact  component={ErrorPage } />
+        <Redirect from ='*' to="/errorpage"/>
       </Switch>
     </BrowserRouter>
   );
