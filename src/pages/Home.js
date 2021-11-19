@@ -8,7 +8,6 @@ const Following = () => {
   const [pics, setPics] = useState([]);
   const [following, setFollowing] = useState([]);
   const { user, token } = isAuthenticated();
-  console.log(user);
 
   useEffect(() => {
     if (user._id) {
@@ -122,7 +121,6 @@ const Following = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         const newData = pics.map((item) => {
           if (item._id === result._id) {
             return result;
@@ -152,7 +150,6 @@ const Following = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         const newData = pics.map((item) => {
           if (item._id === result._id) {
             return result;

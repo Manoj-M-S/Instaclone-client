@@ -27,7 +27,6 @@ console.log(user.photo)
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         photo = data.secure_url;
       })
       .then(() =>

@@ -28,7 +28,6 @@ const Profile = () => {
             .then((res) => res.json())
             .then((result) => {
               setDetails(result);
-              console.log(result);
               setDp(result.profile);
             })
         );
