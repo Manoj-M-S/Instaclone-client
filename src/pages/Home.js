@@ -88,24 +88,24 @@ const Following = () => {
       });
   };
 
-  const deletePost = (postid) => {
-    fetch(`${API}/post/delete/${user._id}/${postid}`, {
-      method: "delete",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        const newData = pics.filter((item) => {
-          return item._id !== result._id;
-        });
-        setPics(newData);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const deletePost = (postid) => {
+  //   fetch(`${API}/post/delete/${user._id}/${postid}`, {
+  //     method: "delete",
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       const newData = pics.filter((item) => {
+  //         return item._id !== result._id;
+  //       });
+  //       setPics(newData);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const makeComment = (text, id) => {
     fetch(`${API}/comment`, {
@@ -174,30 +174,50 @@ pics.length > 0 ? (
   pics.map((item) => {
     return (
       <div key={item._id}>
-        <div className="card home-card hovernow">
-            <h6 style={{ paddingLeft: "10px", paddingTop: "10px"}} className="text ">
-              <Link
-                to={
-                  item.userId !== user._id
-                    ? `/profile/${item.userId}`
-                    : `/profile`
-                } style={{ "fontWeight":"bold"}}
-              >
-                {item.postedBy}
-              </Link>
-              {item.postedBy === user.name && (
-                <i
-                  className="material-icons hoverdelete"
-                  style={{ float: "right" }}
-                  onClick={() => {
-                    deletePost(item._id);
-                  }}
-                >
-                  delete
-                </i>
-              )}
-            </h6>
-          <p style={{ paddingLeft: "10px" }}>{item.location}</p>
+        <div className="card home-card hover">
+        <span className="card-title">
+                    <div style={{ maxWidth: "100%" }}>
+                      <div style={{
+                        display: "flex",
+                      }}>
+                        <div className="profile">
+                          <object
+                              className="hoverbutton"
+                              data={item.profile}
+                              style={{
+                              width: "50px",
+                              height: "50px",
+                              borderRadius: "25px",
+                            }}
+                          >
+                            <img
+                              style={{
+                                width: "50px",
+                                height: "50px",
+                                borderRadius: "25px",
+                              }}
+                              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                              alt=""
+                            />
+                          </object>
+                        </div>
+                        <div>
+                          <h6 style={{ paddingLeft: "10px", paddingTop: "10px" }} className="text">
+                            <Link
+                              to={
+                                item.userId !== user._id
+                                  ? `/profile/${item.userId}`
+                                  : `/profile`
+                              }style={{ "fontWeight":"bold"}}
+                            >
+                              {item.postedBy}
+                            </Link>
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+                  <p style={{ paddingLeft: "10px", marginTop:"0px"}}>{item.location}</p>
           <div className="card-image hovernow">
             <img alt={item.caption} src={item.photo} />
           </div>

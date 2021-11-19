@@ -3,7 +3,6 @@ import App from "../App";
 import { isAuthenticated } from "../helper/AuthHelper";
 import { API } from "../backend";
 import { Redirect, Link } from "react-router-dom";
-import M from "materialize-css";
 
 
 const Explore = () => {
@@ -84,35 +83,35 @@ const Explore = () => {
       });
   };
 
-  const deletePost = (postid) => {
-    fetch(`${API}/post/delete/${user._id}/${postid}`, {
-      method: "delete",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        const newData = pics.filter((item) => {
-          return item._id !== result._id;
-        });
-        setPics(newData);
-      })
-      .then((data) => {
-        if (!data.error) {
-          M.toast({
-            html: "Post Created Successful",
-            classes: "#43a047 green darken-1",
-          });
-        } else {
-          M.toast({
-            html: data.error,
-            classes: "#c62828 red darken-2",
-          });
-        }
-      })
-      .catch((error) => console.log(error));
-  };
+  // const deletePost = (postid) => {
+  //   fetch(`${API}/post/delete/${user._id}/${postid}`, {
+  //     method: "delete",
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       const newData = pics.filter((item) => {
+  //         return item._id !== result._id;
+  //       });
+  //       setPics(newData);
+  //     })
+  //     .then((data) => {
+  //       if (!data.error) {
+  //         M.toast({
+  //           html: "Post Created Successful",
+  //           classes: "#43a047 green darken-1",
+  //         });
+  //       } else {
+  //         M.toast({
+  //           html: data.error,
+  //           classes: "#c62828 red darken-2",
+  //         });
+  //       }
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
 
   const makeComment = (text, id) => {
     fetch(`${API}/comment`, {
@@ -185,30 +184,48 @@ const Explore = () => {
               <div key={item._id}>
                 <div className="card home-card hovernow">
                   <span className="card-title">
-                    <h6 style={{ paddingLeft: "10px", paddingTop: "10px" }} className="text">
-                      <Link
-                        to={
-                          item.userId !== user._id
-                            ? `/profile/${item.userId}`
-                            : `/profile`
-                        }style={{ "fontWeight":"bold"}}
-                      >
-                        {item.postedBy}
-                      </Link>
-                      {item.postedBy === user.name && (
-                        <i
-                          className="material-icons hoverdelete"
-                          style={{ float: "right", fontSize:"20px", paddingRight:"10px" }}
-                          onClick={() => {
-                            deletePost(item._id);
-                          }}
-                        >
-                          delete
-                        </i>
-                      )}
-                    </h6>
+                    <div style={{ maxWidth: "100%" }}>
+                      <div style={{
+                        display: "flex",
+                      }}>
+                        <div className="profile">
+                          <object
+                              className="hoverbutton"
+                              data={item.profile}
+                              style={{
+                              width: "50px",
+                              height: "50px",
+                              borderRadius: "25px",
+                            }}
+                          >
+                            <img
+                              style={{
+                                width: "50px",
+                                height: "50px",
+                                borderRadius: "25px",
+                              }}
+                              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                              alt=""
+                            />
+                          </object>
+                        </div>
+                        <div>
+                          <h6 style={{ paddingLeft: "10px", paddingTop: "10px" }} className="text">
+                            <Link
+                              to={
+                                item.userId !== user._id
+                                  ? `/profile/${item.userId}`
+                                  : `/profile`
+                              }style={{ "fontWeight":"bold"}}
+                            >
+                              {item.postedBy}
+                            </Link>
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
                   </span>
-                  <p style={{ paddingLeft: "10px" }}>{item.location}</p>
+                  <p style={{ paddingLeft: "10px", marginTop:"0px"}}>{item.location}</p>
                   <div className="card-image">
                     <img alt={item.caption} src={item.photo} />
                   </div>

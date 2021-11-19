@@ -8,7 +8,8 @@ export const CreateaPost = (
   token,
   caption,
   location,
-  userId
+  userId,
+  profile,
 ) => {
   fetch(`${API}/create/post/${user._id}`, {
     method: "post",
@@ -22,6 +23,7 @@ export const CreateaPost = (
       photo,
       postedBy,
       userId,
+      profile
     }),
   })
     .then((response) => {

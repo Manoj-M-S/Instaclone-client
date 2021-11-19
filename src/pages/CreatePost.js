@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 const CreatePost = () => {
   const history = useHistory();
   const { user, token } = isAuthenticated();
-
+console.log(user.photo)
   const [caption, setCaption] = useState("");
   const [location, setLocation] = useState("");
   const [image, setImage] = useState("");
@@ -31,7 +31,7 @@ const CreatePost = () => {
         photo = data.secure_url;
       })
       .then(() =>
-        CreateaPost(photo, postedBy, API, user, token, caption, location, userId)
+        CreateaPost(photo, postedBy, API, user, token, caption, location, userId, user.photo)
       )
       .then(() =>
         setTimeout(() => {
